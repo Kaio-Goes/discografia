@@ -1,0 +1,22 @@
+.container{
+    background-image: url('../src/img/background.png');
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+};
+.image{
+    float: left;
+    border: thin solid;
+    padding: 5px;
+    margin: 0px 10px 10px 0;
+}
+.discografia{
+    color: grey;
+    flex-direction: column;
+    text-align: right;
+    font-size: 30px;
+    margin: -60px;
+    margin-right: 20px;
+}
