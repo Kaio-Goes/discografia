@@ -56,16 +56,15 @@ function App() {
       </Card>
       <br/>
       <Card sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.6)'}}>
-            {kaio.map((player,index) => (
-              <table>
+            {kaio.map((player, index) => (
+               <div>
+                <table>
                 <thead>
                   <tr>
                     <th  key={index}><div style={{marginLeft: 20}}>Albúm: {player.name},{player.year}</div></th>
                   </tr>
                 </thead>
-              </table>
-            ))}
-            {kaio.map((player) => (
+                </table>
               <table >
                 <thead>
                   <tr>
@@ -84,6 +83,7 @@ function App() {
                     ))}
                 </tbody>
               </table>
+              </div>
             ))}
 
       </Card>
