@@ -57,11 +57,11 @@ function App() {
       <br/>
       <Card sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.6)'}}>
             {kaio.map((player, index) => (
-               <div>
+               <div key={index}>
                 <table>
                 <thead>
                   <tr>
-                    <th  key={index}><div style={{marginLeft: 20}}>Albúm: {player.name},{player.year}</div></th>
+                    <th><div style={{marginLeft: 20}}>Albúm: {player.name},{player.year}</div></th>
                   </tr>
                 </thead>
                 </table>
@@ -74,7 +74,7 @@ function App() {
                   </tr>
                 </thead>
                 <tbody>
-                    {player.tracks.map((p, i) => (
+                    {player.tracks.map((p,i) => (
                     <tr key={i}>
                       <td >{p.number}</td>
                       <td align="left"><div align="left" style={{marginLeft: 60}}>{p.title}</div></td>
