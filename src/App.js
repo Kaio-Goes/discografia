@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import './styles.css'
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 import {FiSearch} from 'react-icons/fi'
@@ -12,16 +13,13 @@ import { Container, Row, Col,Button,Image   } from 'react-bootstrap';
 
 function App() {
   const [report, setReport] =  useState({})
-  const {music, setMusic} = useState({})
 
   useEffect(()=>{
     async function componentDidMount() {
       try {
         const response = await api.get('album')
         const data = response.data.data
-        const dataMusic = response.data.data
         console.log(data)
-        // setMusic(dataMusic)
         setReport(data)
       }catch(error){
           alert(error.message);
@@ -31,16 +29,16 @@ function App() {
     componentDidMount()
   }, [])
 
-  const addPost = data => api.post('album', {
-    name: data.name,
-    year: data.year
-  }).then(() => {
-    console.log("Deu certo")
-  }).catch(() => {
-    console.log('Deu errado')
-  })
+  // const addPost = data => api.post('album', {
+  //   name: data.name,
+  //   year: data.year
+  // }).then(() => {
+  //   console.log("Deu certo")
+  // }).catch(() => {
+  //   console.log('Deu errado')
+  // })
 
-  const array = Array.from(report)
+  const kaio = Array.from(report)
   
 
   return (
@@ -51,7 +49,34 @@ function App() {
           <p className='discografia'>Discografia</p>
       </Card>
       <br/>
-      <Card sx={{width:650 , height: 100, backgroundColor:  'rgba(255,255,255,0.6)'}}>
+      <Card sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.6)'}}>
+        <table>
+          <thead>
+            {kaio.map((player,index) => (
+              <tr key={index}>
+                <th>Albúm:</th>
+                <th style={{paddingLeft: 2}}>{player.name},</th>
+                <th style={{paddingRight: 400}}>{player.year}</th>
+              </tr>
+            ))}
+          </thead>
+          <br/>
+          <tbody>
+            <tr>
+              <td style={{color: 'gray'}}>Nº</td>
+              <td style={{color: 'gray'}}>Faixa</td>
+              <td style={{paddingLeft: 350, color: 'gray'}}>Duração</td>
+            </tr>
+            {kaio.map((player, index) => (
+              <tr key={index}>
+                  {player.tracks.map((p, i) => (
+                    <td>{p.number}</td>
+                  ))}
+                </tr>
+            ))}
+            </tbody>
+        </table>
+
       </Card>
     </div>
     // <div>
