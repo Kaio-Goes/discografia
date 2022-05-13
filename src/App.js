@@ -10,6 +10,8 @@ import { Table, Container, Row, Col,Button,Image   } from 'react-bootstrap';
 
 function App() {
   const [report, setReport] =  useState({})
+  const [search, setSearch] = useState('')
+  const array = Array.from(report)
 
   useEffect(()=>{
     async function componentDidMount() {
@@ -44,7 +46,6 @@ function App() {
   //   console.log('Deu errado')
   // })
 
-  const kaio = Array.from(report)
   
 
   return (
@@ -56,27 +57,35 @@ function App() {
       </Card>
       <br/>
       <Card sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.6)'}}>
-            {kaio.map((player, index) => (
+        <p style={{color: 'gray', paddingTop: 20, paddingLeft: 20, paddingBottom: 10}}>Digite uma palavra chave</p>
+          <input className="input" type="text" placeholder="Pesquise a música" onChange={event => setSearch(event.target.value)}/>
+            {array.map((player, index) => (
                <div key={index}>
                 <table>
-                <thead>
-                  <tr>
-                    <th><div style={{marginLeft: 20}}>Albúm: {player.name},{player.year}</div></th>
-                  </tr>
-                </thead>
+                  <thead>
+                    <tr>
+                      <th><div style={{marginLeft: 20, paddingBottom: 10}}>Albúm: {player.name},{player.year}</div></th>
+                    </tr>
+                  </thead>
                 </table>
               <table >
                 <thead>
                   <tr>
-                    <th style={{ color: 'gray'}}>Nº</th>
+                    <th style={{ paddingLeft: 20, color: 'gray', paddingBottom: 10}}>Nº</th>
                     <th style={{color: 'gray'}}>Faixa</th>
                     <th  align="right"><div style={{marginLeft: 300,color: 'gray'}}>Duração</div></th>
                   </tr>
                 </thead>
                 <tbody>
-                    {player.tracks.map((p,i) => (
+                    {player.tracks.filter((val)=> {
+                      if(search == ""){
+                        return val
+                      } else if (val.title.toLowerCase().includes(search.toLowerCase())){
+                        return val
+                      }
+                    }).map((p,i) => (
                     <tr key={i}>
-                      <td >{p.number}</td>
+                      <td style={{ paddingLeft: 20, paddingBottom: 10}} >{p.number}</td>
                       <td align="left"><div align="left" style={{marginLeft: 60}}>{p.title}</div></td>
                       <td align="right"><div style={{marginRight: 30}}>{converter(p.duration)}</div></td>
                     </tr>
