@@ -109,5 +109,9 @@ input {
 }
 
 .error-message{
-    color: rgb(240,47,47)
+    margin-top: 6px;
+    padding: 5px;
+    border-radius: 15px;
+    color: rgb(240,47,47);
+    font-size: 0.8rem;
 }
