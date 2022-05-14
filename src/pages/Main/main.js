@@ -58,7 +58,7 @@ function Main() {
           <p className='discografia'>Discografia</p>
       </Card>
       <br/>
-      <Card sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.6)'}}>
+      <Card sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.7)'}}>
         {/* <button onClick={() => history.push('/newAlbum')} className="button">+Criar Novo Albúm</button> */}
         <br/>
         <a className="a" href="http://localhost:3000/newAlbum">+Criar Albúm</a>

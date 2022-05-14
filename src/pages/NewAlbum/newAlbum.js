@@ -17,7 +17,7 @@ function NewAlbum(){
                 <p className='discografia'>Discografia</p>
             </Card>
             <br/>
-            <Card  sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.6)'}}>
+            <Card  sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.7)'}}>
                 <br/>
                 <main>
                     <div className="card-post">

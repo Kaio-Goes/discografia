@@ -27,6 +27,11 @@
     margin-bottom: 20px;
     padding-left: 20px;
     border-radius: 20px;
+    background-color: gray;
+    color: white;
+}
+input::placeholder{
+    color: white;
 }
 .a{
     margin-left : 20px;
