@@ -2,12 +2,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react'
 import '../../../src/styles.css'
 import Card from '@mui/material/Card';
-import {useHistory} from 'react-router-dom';
-  
-import {FiSearch} from 'react-icons/fi'
 import api from '../../Services/api'
-import { keyframes } from '@emotion/react';
-import { Table, Container, Row, Col,Button,Image   } from 'react-bootstrap';
 
 function Main() {
   const [report, setReport] =  useState({})
@@ -38,8 +33,7 @@ function Main() {
     return `${textoHoras}:${textoMinutos}`;
   }
 
-  const history = useHistory();
-  
+
   const addPost = data => api.post('album', {
     name: data.name,
     year: data.year
