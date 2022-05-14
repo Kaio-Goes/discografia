@@ -46,10 +46,7 @@ function NewAlbum(){
                                 </div>
                                 <div className="fields">
                                     <label>Ano do Albúm:</label>
-                                    <input type="number" title="year" {...register("year",{ pattern: {
-        value: /^[0-9]+$/,
-        message: 'Please enter a number',
-    },})}/>
+                                    <input type="number" title="year" {...register("year")}/>
                                     <p className="error-message">{errors.year?.message}</p>
                                 </div>
                                 <div className="btn-post">
