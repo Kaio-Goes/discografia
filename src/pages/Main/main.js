@@ -33,17 +33,6 @@ function Main() {
     return `${textoHoras}:${textoMinutos}`;
   }
 
-
-  const addPost = data => api.post('album', {
-    name: data.name,
-    year: data.year
-  }).then(() => {
-    console.log("Deu certo")
-  }).catch(() => {
-    console.log('Deu errado')
-  })
-
-
   return (
     <div className="container">
       <Card sx={{width:650 , height: 100, marginTop: -10}}>
