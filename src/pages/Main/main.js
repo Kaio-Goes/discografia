@@ -9,7 +9,7 @@ import api from '../../Services/api'
 import { keyframes } from '@emotion/react';
 import { Table, Container, Row, Col,Button,Image   } from 'react-bootstrap';
 
-function App() {
+function Main() {
   const [report, setReport] =  useState({})
   const [search, setSearch] = useState('')
   const array = Array.from(report)
@@ -105,4 +105,4 @@ function App() {
   );
 }
 
-export default App;
+export default Main;

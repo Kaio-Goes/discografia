@@ -1,8 +1,14 @@
 import React from 'react'
 import '../../../src/styles.css'
 import Card from '@mui/material/Card';
+import { useForm } from 'react-hook-form'
 
-function newAlbum(){
+function NewAlbum(){
+
+    const { register, handleSubmit, formState: { erros }} = useForm();
+
+    const addPost = data => console.log(data)
+
     return(
         <div className="container">
             <Card sx={{width:650 , height: 100, marginTop: -10}}>
@@ -13,10 +19,32 @@ function newAlbum(){
             <br/>
             <Card  sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.6)'}}>
                 <br/>
-                <a className="a" href="http://localhost:3000/">Voltar</a>
+                <main>
+                    <div className="card-post">
+                        <h1>Criar novo Albúm</h1>
+                        <div className="line-post"></div>
+                        <div className="card-body-post">
+                            <form onSubmit={handleSubmit(addPost)}>
+                                <div className="fields">
+                                    <label>Nome do Albúm:</label>
+                                    <input type="text" title="name" {...register("name")}/>
+                                </div>
+                                <div className="fields">
+                                    <label>Ano do Albúm:</label>
+                                    <input type="number" title="year" {...register("year")}/>
+                                </div>
+                                <div className="btn-post">
+                                    <button type="submit">Enviar</button>
+                                    <a className="a" href="http://localhost:3000/">Voltar</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+              
             </Card>
         </div>
     )
 }
 
-export default newAlbum;
+export default NewAlbum;

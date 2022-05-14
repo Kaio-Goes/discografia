@@ -38,3 +38,71 @@
     text-decoration: none;
     color: white;
 }
+main{
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.card-post {
+    background-color: rgb(128, 128, 128, 0.5);
+    padding: 20px 60px;
+    border-radius: 15px;
+}
+
+.card-post h1{
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+.line-post{
+    height: 2px;
+    background-color: gray;
+}
+
+.card-body-post{
+    margin-top: 25px;
+}
+
+.fields{
+    margin-bottom: 15px;
+}
+
+label{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color: white;
+    font-family: Poppins;
+}
+
+input {
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    outline: 0; 
+    font-size: 1.0rem;
+    padding-left: 12px;
+    height: 35px;
+}
+
+.btn-post{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-post button{
+    font-size: 1rem;
+    padding: 10px;
+    color: white;
+    background-color:  gray;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.error-message{
+    color: rgb(240,47,47)
+}
