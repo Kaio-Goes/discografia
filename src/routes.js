@@ -1,17 +1,21 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import Main from './pages/Main/main';
 import NewAlbum from './pages/NewAlbum/newAlbum';
 
 function Routes(){
     return(
-        <BrowserRouter>
+        <Router>
             <Switch>
-                <Route path='/' exact component={Main}/>
-                <Route path='/newAlbum' component={NewAlbum}/>
+                <Route path='/' exact>
+                    <Main />
+                </Route>
+                <Route path='/newAlbum' exact>
+                    <NewAlbum />
+                </Route> 
             </Switch>
-        </BrowserRouter>
+        </Router>
     )
 }
 

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import '../../../src/styles.css'
 import Card from '@mui/material/Card';
 import {useHistory} from 'react-router-dom';
-
+  
 import {FiSearch} from 'react-icons/fi'
 import api from '../../Services/api'
 import { keyframes } from '@emotion/react';
@@ -38,10 +38,7 @@ function App() {
     return `${textoHoras}:${textoMinutos}`;
   }
 
-  let history = useHistory();
-  function handleClick(){
-    history.push("/newAlbum", { fromPopup: true })
-  }
+  const history = useHistory();
   
   const addPost = data => api.post('album', {
     name: data.name,
@@ -62,7 +59,9 @@ function App() {
       </Card>
       <br/>
       <Card sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.6)'}}>
-        <button onClick={handleClick} className="button">+Criar Novo Albúm</button>
+        {/* <button onClick={() => history.push('/newAlbum')} className="button">+Criar Novo Albúm</button> */}
+        <br/>
+        <a className="a" href="http://localhost:3000/newAlbum">+Criar Albúm</a>
         <p style={{color: 'gray', paddingTop: 20, paddingLeft: 20, paddingBottom: 10}}>Digite uma palavra chave</p>
           <input className="input" type="text" placeholder="Pesquise a música" onChange={event => setSearch(event.target.value)}/>
             {array.map((player, index) => (
