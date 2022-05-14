@@ -4,6 +4,8 @@ import Card from '@mui/material/Card';
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup"
+import api from '../../Services/api'
+import { useHistory } from 'react-router-dom';
 
 const validationPost = yup.object().shape({
     name: yup.string().required("O nome do Albúm é obrigatório")
@@ -17,11 +19,20 @@ const validationPost = yup.object().shape({
 
 function NewAlbum(){
 
+    let history = useHistory()
+
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(validationPost)
     });
 
-    const addPost = data => console.log(data)
+    const addPost = data => api.post('album', data)
+    .then(() => {
+        console.log("Deu certo")
+        history.push("/")
+    }).catch(() => {
+        console.log('Deu errado')
+    })
+     
 
     return(
         <div className="container">

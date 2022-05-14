@@ -52,15 +52,19 @@ function Main() {
                 <table>
                   <thead>
                     <tr>
-                      <th><div style={{marginLeft: 20, paddingBottom: 10}}>Albúm: {player.name},{player.year}</div></th>
+                      <th><div style={{marginLeft: 20, paddingBottom: 5}}>Albúm: {player.name},{player.year}</div></th>
                     </tr>
                   </thead>
                 </table>
               <table >
                 <thead>
                   <tr>
-                    <th style={{ paddingLeft: 20, color: 'gray', paddingBottom: 10}}>Nº</th>
-                    <th style={{color: 'gray'}}>Faixa</th>
+                    <th style={{ paddingLeft: 20, color: 'gray', paddingBottom: 10}}>
+                      <div style={{marginTop: 10}}>Nº</div>
+                    </th>
+                    <th style={{color: 'gray'}}>
+                      <div>Faixa</div>
+                    </th>
                     <th  align="right"><div style={{marginLeft: 300,color: 'gray'}}>Duração</div></th>
                   </tr>
                 </thead>
