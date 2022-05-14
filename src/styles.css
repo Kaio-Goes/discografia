@@ -33,15 +33,15 @@
 input::placeholder{
     color: white;
 }
-.a{
+.btn-newAlbum{
+    margin-top: 10PX;
     margin-left : 20px;
     padding: 10px;
     border-radius: 20px;
-    border-color: gray;
+    border: 0;
     background-color:  gray;
-    outline: none;
-    text-decoration: none;
     color: white;
+    cursor : pointer;
 }
 main{
     display: flex;
@@ -114,4 +114,20 @@ input {
     border-radius: 15px;
     color: rgb(240,47,47);
     font-size: 0.8rem;
+}
+
+.div-btn{
+    margin-top: 1px;
+    margin-left: 200px;
+}
+
+.div-btn button{
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px;
+    color: white;
+    background-color:  gray;
+    border: 0;
+    border-radius: 16px;
+    cursor: pointer;
 }

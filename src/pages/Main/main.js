@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import '../../../src/styles.css'
 import Card from '@mui/material/Card';
 import api from '../../Services/api'
+import {BsFillTrashFill } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom';
 
 function Main() {
   const [report, setReport] =  useState({})
@@ -24,6 +26,17 @@ function Main() {
     componentDidMount()
   }, [])
 
+  function deletePost(id) {
+    api.delete(`album/${id}`)
+
+    setReport(report.filter(player => player.id !== id))
+  }
+
+  let navigate = useNavigate()
+  function handleClick(){
+      navigate('/newAlbum')
+  }
+
   const converter = (minutos) => {
     const horas = Math.floor(minutos/60);
     const min = minutos % 60;
@@ -42,17 +55,28 @@ function Main() {
       </Card>
       <br/>
       <Card sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.7)'}}>
-        {/* <button onClick={() => history.push('/newAlbum')} className="button">+Criar Novo Albúm</button> */}
+        <button className="btn-newAlbum" onClick={handleClick}>+Criar Novo Albúm</button>
         <br/>
-        <a className="a" href="http://localhost:3000/newAlbum">+Criar Albúm</a>
+        {/* <a className="a" href="http://localhost:3000/newAlbum">+Criar Albúm</a> */}
         <p style={{color: 'gray', paddingTop: 20, paddingLeft: 20, paddingBottom: 10}}>Digite uma palavra chave</p>
           <input className="input" type="text" placeholder="Pesquise a música" onChange={event => setSearch(event.target.value)}/>
             {array.map((player, index) => (
                <div key={index}>
                 <table>
                   <thead>
-                    <tr>
-                      <th><div style={{marginLeft: 20, paddingBottom: 5}}>Albúm: {player.name},{player.year}</div></th>
+                    <tr style={{padding: 200}}>
+                        <th>
+                          <div style={{marginLeft: 20, paddingBottom: 5}}>
+                            Albúm: {player.name},{player.year}
+                          </div>
+                        </th>
+                        <th>
+                            <div className="div-btn">
+                            <button  onClick={() => deletePost(player.id)} className="btn-excluir">
+                              Excluir Albúm <BsFillTrashFill />
+                            </button>
+                            </div>
+                        </th>
                     </tr>
                   </thead>
                 </table>

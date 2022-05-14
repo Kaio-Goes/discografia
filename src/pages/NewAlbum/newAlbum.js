@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup"
 import api from '../../Services/api'
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const validationPost = yup.object().shape({
     name: yup.string().required("O nome do Albúm é obrigatório")
@@ -19,7 +19,10 @@ const validationPost = yup.object().shape({
 
 function NewAlbum(){
 
-    let history = useHistory()
+    let navigate = useNavigate()
+    function handleClick(){
+        navigate('/')
+    }
 
     const { register, handleSubmit, formState: { errors }} = useForm({
         resolver: yupResolver(validationPost)
@@ -28,7 +31,7 @@ function NewAlbum(){
     const addPost = data => api.post('album', data)
     .then(() => {
         console.log("Deu certo")
-        history.push("/")
+        navigate('/')
     }).catch(() => {
         console.log('Deu errado')
     })
@@ -62,7 +65,7 @@ function NewAlbum(){
                                 </div>
                                 <div className="btn-post">
                                     <button type="submit">Enviar</button>
-                                    <a className="a" href="http://localhost:3000/">Voltar</a>
+                                    <button style={{marginLeft: 10}} onClick={handleClick}>Voltar</button>
                                 </div>
                             </form>
                         </div>
