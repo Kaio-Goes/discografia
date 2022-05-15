@@ -73,13 +73,13 @@ function NewMusic (){
                                 <form onSubmit={handleSubmit(addPost)}>
                                         <div>
                                             <div className="fields">
-                                                <label>Nome do Albúm:</label>
+                                                <label>Chave do Albúm:</label>
                                                 {/* <select className="select" value="album_id"{...register(`album_id}`)}>
                                                 {array.map((player, index) =>(
                                                     <option value={index} key={index}>{player.name}</option>
                                                 ))}
                                                 </select> */}
-                                                <input  type="album_id" title="number" {...register("album_id")}/>
+                                                <input  type="number" title="album_id" {...register("album_id")}/>
                                                 <p className="error-message">{errors.album_id?.message}</p>
                                             </div>
                                         </div>
