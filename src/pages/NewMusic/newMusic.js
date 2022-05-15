@@ -29,6 +29,12 @@ function NewMusic (){
         resolver: yupResolver(validationPost)
     });
 
+    const [title, setTitle] = useState(0)
+
+    const editarTitle = e => {
+        e.preventDefault();
+    }
+
     let navigate = useNavigate()
     function handleClick(){
         navigate('/')
@@ -70,10 +76,19 @@ function NewMusic (){
                         <h1>Adicionar música</h1>
                         <div className="line-post"></div>
                             <div className="card-body-post">
+                                <label>Selecione o Albúm</label>
+                                <select  className="select" name="title" value={title}
+                                    onChange={event => setTitle(event.target.value)}>
+                                    <option value="0" disabled>Selecione o Albúm</option>
+                                    {array.map((player, index) =>(
+                                            <option value={player.id} key={index}>{player.name}</option> 
+                                    ))}
+                                </select>
+                                <label>Chave do Albúm: {title}</label>
                                 <form onSubmit={handleSubmit(addPost)}>
                                         <div>
                                             <div className="fields">
-                                                <label>Chave do Albúm:</label>
+                                                <label>Digite a chave do Albúm:</label>
                                                 {/* <select className="select" value="album_id"{...register(`album_id}`)}>
                                                 {array.map((player, index) =>(
                                                     <option value={index} key={index}>{player.name}</option>
