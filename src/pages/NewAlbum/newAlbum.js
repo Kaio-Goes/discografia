@@ -71,7 +71,6 @@ function NewAlbum(){
                         </div>
                     </div>
                 </main>
-              
             </Card>
         </div>
     )

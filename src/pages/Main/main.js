@@ -27,9 +27,14 @@ function Main() {
   }, [])
 
   function deletePost(id) {
-    api.delete(`album/${id}`)
+    if(window.confirm("Você quer realmente excluir o Albúm?")){      
+      api.delete(`album/${id}`).then(() => {
+        alert("Deletado com sucesso")})
+        setReport(report.filter(player => player.id !== id))
+    }else {
+      return false
+    }
 
-    setReport(report.filter(player => player.id !== id))
   }
 
   let navigate = useNavigate()
