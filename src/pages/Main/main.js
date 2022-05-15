@@ -33,9 +33,13 @@ function Main() {
   }
 
   let navigate = useNavigate()
-  function handleClick(){
+  function handleClickNewAlbum(){
       navigate('/newAlbum')
   }
+
+  function handleClickNewMusic(){
+    navigate('/newMusic')
+}
 
   const converter = (minutos) => {
     const horas = Math.floor(minutos/60);
@@ -55,13 +59,19 @@ function Main() {
       </Card>
       <br/>
       <Card sx={{width:650 , backgroundColor:  'rgba(255,255,255,0.7)'}}>
-        <button className="btn-newAlbum" onClick={handleClick}>+Criar Novo Albúm</button>
+        <button className="btn-newAlbum" 
+          onClick={handleClickNewAlbum}>
+            +Criar Novo Albúm
+        </button>
+        <button className="btn-newAlbum"
+          onClick={handleClickNewMusic}>
+            +Adicionar música ao Albúm
+        </button>
         <br/>
-        {/* <a className="a" href="http://localhost:3000/newAlbum">+Criar Albúm</a> */}
         <p style={{color: 'gray', paddingTop: 20, paddingLeft: 20, paddingBottom: 10}}>Digite uma palavra chave</p>
           <input className="input" type="text" placeholder="Pesquise a música" onChange={event => setSearch(event.target.value)}/>
             {array.map((player, index) => (
-               <div key={index}>
+              <div key={index}>
                 <table>
                   <thead>
                     <tr style={{padding: 200}}>
@@ -110,7 +120,6 @@ function Main() {
               </table>
               </div>
             ))}
-
       </Card>
     </div>
   );
