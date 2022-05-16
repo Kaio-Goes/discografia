@@ -37,10 +37,13 @@ function Main() {
   }
 
     function deletePostMusic(id){
-      if(window.confirm("Você quer realmente excluir o Albúm?")){
+      if(window.confirm("Você quer realmente excluir essa Música?")){
         api.delete(`track/${id}`).then(() => {
-          alert("Deletado com sucesso")})
-          window.location.reload(setReport(report.filter(player => (player.id !== id)))) 
+          alert("Deletado com sucesso")
+          window.location.reload() 
+          }
+          )
+          navigate('/')
       }else{
         return false
       }
