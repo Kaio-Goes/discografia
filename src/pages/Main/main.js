@@ -31,11 +31,21 @@ function Main() {
       api.delete(`album/${id}`).then(() => {
         alert("Deletado com sucesso")})
         setReport(report.filter(player => player.id !== id))
-    }else {
+      }else {
       return false
     }
-
   }
+
+    function deletePostMusic(id){
+      if(window.confirm("Você quer realmente excluir o Albúm?")){
+        api.delete(`track/${id}`).then(() => {
+          alert("Deletado com sucesso")})
+          window.location.reload(setReport(report.filter(player => (player.id !== id)))) 
+      }else{
+        return false
+      }
+    }
+
 
   let navigate = useNavigate()
   function handleClickNewAlbum(){
@@ -104,7 +114,7 @@ function Main() {
                     <th style={{color: 'gray'}}>
                       <div>Faixa</div>
                     </th>
-                    <th  align="right"><div style={{marginLeft: 300,color: 'gray'}}>Duração</div></th>
+                    <th  align="right"><div style={{marginLeft: 250,color: 'gray'}}>Duração</div></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -119,6 +129,11 @@ function Main() {
                       <td style={{ paddingLeft: 20, paddingBottom: 10}} >{p.number}</td>
                       <td align="left"><div align="left" style={{marginLeft: 60}}>{p.title}</div></td>
                       <td align="right"><div style={{marginRight: 30}}>{converter(p.duration)}</div></td>
+                      <td>
+                        <button onClick={() => deletePostMusic(p.id)} className="btn-excluirMusic">
+                          Excluir <BsFillTrashFill />
+                        </button>
+                      </td>
                     </tr>
                     ))}
                 </tbody>

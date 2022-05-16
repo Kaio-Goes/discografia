@@ -148,5 +148,14 @@ select{
 }
 
 select:checked {
-  color: rgb(43, 41, 41);
+    color: rgb(43, 41, 41);
+}
+
+.btn-excluirMusic{
+    padding: 5px;
+    border-radius: 20px;
+    border: 0;
+    background-color:  rgb(145, 36, 36);
+    color: white;
+    cursor : pointer;
 }
